@@ -6,5 +6,5 @@
  * @module services/expense
  */
 
-export { expenseCreate } from './expenseLogic';
+export * from './expenseLogic';
 export * from './expenseTypes';

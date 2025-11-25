@@ -11,6 +11,7 @@ import * as expenseController from '@/api/v1/internal/expense/controller';
 import * as categoryController from '@/api/v1/internal/category/controller';
 import * as monthlyTotalController from '@/api/v1/internal/monthly-total/controller';
 import * as expenseChartController from '@/api/v1/internal/expense-chart/controller';
+import * as availableBalanceController from '@/api/v1/internal/available-balance/controller';
 
 const router = Router();
 
@@ -26,5 +27,7 @@ router.post('/category/:id/restore', categoryController.restoreHandler);
 router.get('/monthly-total', monthlyTotalController.getHandler);
 
 router.get('/expense-chart', expenseChartController.getHandler);
+
+router.get('/available-balance', availableBalanceController.getHandler);
 
 export default router;

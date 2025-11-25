@@ -3,6 +3,7 @@ import { useNavigation } from '@/core/hooks/useNavigation';
 import { PlusIcon, FolderIcon } from 'lucide-react';
 import { MonthlyTotalCard } from '@/domain/monthlyTotal/components/MonthlyTotalCard';
 import { ExpenseChart } from '@/domain/expenseChart/components/ExpenseChart';
+import { AvailableBalanceCard } from '@/domain/availableBalance/components/AvailableBalanceCard';
 
 function HomePage() {
   const { navigate } = useNavigation();
@@ -26,10 +27,12 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid gap-6 md:grid-cols-2">
+        <AvailableBalanceCard />
         <MonthlyTotalCard />
-        <ExpenseChart />
       </div>
+
+      <ExpenseChart />
     </div>
   );
 }

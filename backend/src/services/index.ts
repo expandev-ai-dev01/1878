@@ -10,3 +10,5 @@ export * from './expense';
 export * from './category';
 export * from './monthlyTotal';
 export * from './expenseChart';
+export * from './budget';
+export * from './availableBalance';
