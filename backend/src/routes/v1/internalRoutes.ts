@@ -9,6 +9,7 @@
 import { Router } from 'express';
 import * as expenseController from '@/api/v1/internal/expense/controller';
 import * as categoryController from '@/api/v1/internal/category/controller';
+import * as monthlyTotalController from '@/api/v1/internal/monthly-total/controller';
 
 const router = Router();
 
@@ -20,5 +21,7 @@ router.get('/category/:id', categoryController.getDetailHandler);
 router.put('/category/:id', categoryController.putHandler);
 router.delete('/category/:id', categoryController.deleteHandler);
 router.post('/category/:id/restore', categoryController.restoreHandler);
+
+router.get('/monthly-total', monthlyTotalController.getHandler);
 
 export default router;

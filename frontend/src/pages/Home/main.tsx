@@ -2,6 +2,7 @@ import { Button } from '@/core/components/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/core/components/card';
 import { useNavigation } from '@/core/hooks/useNavigation';
 import { PlusIcon, FolderIcon } from 'lucide-react';
+import { MonthlyTotalCard } from '@/domain/monthlyTotal/components/MonthlyTotalCard';
 
 function HomePage() {
   const { navigate } = useNavigation();
@@ -25,25 +26,20 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <MonthlyTotalCard />
+        </div>
+
         <Card>
           <CardHeader>
             <CardTitle>Bem-vindo!</CardTitle>
             <CardDescription>Comece registrando seus gastos</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">
               Clique no botão "Adicionar Gasto" para começar a controlar suas finanças.
             </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Gerencie Categorias</CardTitle>
-            <CardDescription>Organize seus gastos por categoria</CardDescription>
-          </CardHeader>
-          <CardContent>
             <p className="text-sm text-muted-foreground">
               Acesse "Categorias" para criar e personalizar suas categorias de gastos.
             </p>

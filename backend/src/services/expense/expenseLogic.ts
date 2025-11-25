@@ -50,6 +50,10 @@ export async function getExpensesByCategory(
   );
 }
 
+export async function getExpensesByAccount(idAccount: number): Promise<ExpenseEntity[]> {
+  return expenses.filter((exp) => exp.idAccount === idAccount && !exp.deleted);
+}
+
 export async function reassignExpenseCategory(
   idAccount: number,
   oldCategoryId: number,
