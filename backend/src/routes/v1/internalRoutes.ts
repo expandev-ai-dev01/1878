@@ -12,14 +12,13 @@ import * as categoryController from '@/api/v1/internal/category/controller';
 
 const router = Router();
 
-/**
- * @rule {be-expense-routes} Expense management routes
- */
 router.post('/expense', expenseController.postHandler);
 
-/**
- * @rule {be-category-routes} Category management routes
- */
 router.get('/category', categoryController.getHandler);
+router.post('/category', categoryController.postHandler);
+router.get('/category/:id', categoryController.getDetailHandler);
+router.put('/category/:id', categoryController.putHandler);
+router.delete('/category/:id', categoryController.deleteHandler);
+router.post('/category/:id/restore', categoryController.restoreHandler);
 
 export default router;

@@ -1,0 +1,17 @@
+export const COLOR_OPTIONS = [
+  { value: '#4CAF50', label: 'Verde' },
+  { value: '#2196F3', label: 'Azul' },
+  { value: '#9C27B0', label: 'Roxo' },
+  { value: '#F44336', label: 'Vermelho' },
+  { value: '#E91E63', label: 'Rosa' },
+  { value: '#FFC107', label: 'Âmbar' },
+  { value: '#795548', label: 'Marrom' },
+  { value: '#9E9E9E', label: 'Cinza' },
+  { value: '#FF9800', label: 'Laranja' },
+  { value: '#00BCD4', label: 'Ciano' },
+  { value: '#8BC34A', label: 'Verde Claro' },
+  { value: '#3F51B5', label: 'Índigo' },
+  { value: '#FFEB3B', label: 'Amarelo' },
+  { value: '#607D8B', label: 'Azul Acinzentado' },
+  { value: '#673AB7', label: 'Roxo Profundo' },
+];

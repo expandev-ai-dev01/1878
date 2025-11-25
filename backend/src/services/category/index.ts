@@ -6,5 +6,12 @@
  * @module services/category
  */
 
-export { categoryList } from './categoryLogic';
+export {
+  categoryList,
+  categoryCreate,
+  categoryGet,
+  categoryUpdate,
+  categoryDelete,
+  categoryRestore,
+} from './categoryLogic';
 export * from './categoryTypes';

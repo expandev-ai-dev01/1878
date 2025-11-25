@@ -26,7 +26,7 @@ CREATE TABLE [functional].[expense] (
 GO
 
 /**
- * @table category Pre-defined expense categories for classification
+ * @table category Expense categories with support for predefined and custom types
  * @multitenancy true
  * @softDelete true
  * @alias cat
@@ -34,7 +34,12 @@ GO
 CREATE TABLE [functional].[category] (
   [idCategory] INTEGER IDENTITY(1, 1) NOT NULL,
   [idAccount] INTEGER NOT NULL,
-  [name] NVARCHAR(100) NOT NULL,
+  [name] NVARCHAR(30) NOT NULL,
+  [icon] NVARCHAR(50) NOT NULL,
+  [color] NVARCHAR(7) NOT NULL,
+  [type] VARCHAR(20) NOT NULL,
+  [edited] BIT NOT NULL DEFAULT (0),
+  [originalName] NVARCHAR(30) NULL,
   [dateCreated] DATETIME2 NOT NULL DEFAULT (GETUTCDATE()),
   [dateModified] DATETIME2 NOT NULL DEFAULT (GETUTCDATE()),
   [deleted] BIT NOT NULL DEFAULT (0)
@@ -71,6 +76,15 @@ GO
  */
 ALTER TABLE [functional].[expense]
 ADD CONSTRAINT [chkExpense_Amount] CHECK ([amount] > 0);
+GO
+
+/**
+ * @check chkCategory_Type Category type must be predefined or custom
+ * @enum {predefined} System predefined category
+ * @enum {custom} User created custom category
+ */
+ALTER TABLE [functional].[category]
+ADD CONSTRAINT [chkCategory_Type] CHECK ([type] IN ('predefined', 'custom'));
 GO
 
 /**
@@ -118,5 +132,15 @@ GO
  */
 CREATE UNIQUE NONCLUSTERED INDEX [uqCategory_Account_Name]
 ON [functional].[category]([idAccount], [name])
+WHERE [deleted] = 0;
+GO
+
+/**
+ * @index ixCategory_Account_Type Search by account and type
+ * @type Search
+ */
+CREATE NONCLUSTERED INDEX [ixCategory_Account_Type]
+ON [functional].[category]([idAccount], [type])
+INCLUDE ([name], [icon], [color])
 WHERE [deleted] = 0;
 GO

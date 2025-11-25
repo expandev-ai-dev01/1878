@@ -9,6 +9,9 @@ const HomePage = lazy(() =>
 const AddExpensePage = lazy(() =>
   import('@/pages/AddExpense').then((module) => ({ default: module.AddExpensePage }))
 );
+const CategoriesPage = lazy(() =>
+  import('@/pages/Categories').then((module) => ({ default: module.CategoriesPage }))
+);
 const NotFoundPage = lazy(() =>
   import('@/pages/NotFound').then((module) => ({ default: module.NotFoundPage }))
 );
@@ -35,6 +38,10 @@ const routes = createBrowserRouter([
       {
         path: 'adicionar-gasto',
         element: <AddExpensePage />,
+      },
+      {
+        path: 'categorias',
+        element: <CategoriesPage />,
       },
       {
         path: '*',
