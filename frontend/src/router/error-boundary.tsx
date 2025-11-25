@@ -25,7 +25,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
   static getDerivedStateFromProps(
     props: ErrorBoundaryProps,
-    state: ErrorBoundaryState,
+    state: ErrorBoundaryState
   ): Partial<ErrorBoundaryState> | null {
     if (props.resetKey !== state.prevResetKey) {
       return {
@@ -45,8 +45,8 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className='flex h-screen w-full flex-col items-center justify-center gap-4'>
-            <h1 className='text-2xl font-bold'>Algo deu errado</h1>
+          <div className="flex h-screen w-full flex-col items-center justify-center gap-4">
+            <h1 className="text-2xl font-bold">Algo deu errado</h1>
             <Button onClick={() => window.location.reload()}>Recarregar</Button>
           </div>
         )

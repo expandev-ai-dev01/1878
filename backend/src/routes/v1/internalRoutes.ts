@@ -7,13 +7,19 @@
  */
 
 import { Router } from 'express';
+import * as expenseController from '@/api/v1/internal/expense/controller';
+import * as categoryController from '@/api/v1/internal/category/controller';
 
 const router = Router();
 
 /**
- * @remarks
- * Internal routes will be added here as features are implemented.
- * Examples: resource management, user operations, protected data access, etc.
+ * @rule {be-expense-routes} Expense management routes
  */
+router.post('/expense', expenseController.postHandler);
+
+/**
+ * @rule {be-category-routes} Category management routes
+ */
+router.get('/category', categoryController.getHandler);
 
 export default router;

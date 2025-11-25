@@ -12,6 +12,6 @@ export const useAppStore = create<AppStore>()(
       theme: 'light',
       setTheme: (theme) => set({ theme }),
     }),
-    { name: 'app-store' },
-  ),
+    { name: 'app-store' }
+  )
 );
